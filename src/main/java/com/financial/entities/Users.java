@@ -40,12 +40,12 @@ public class Users {
     return name;
   }
   
-  public void setName(String neme) {
+  public void setName(String name) {
     this.name = name;
   }
   
   public Double getCash() {
-    return name;
+    return cash;
   }
   
   public void setCash(Double cash) {
