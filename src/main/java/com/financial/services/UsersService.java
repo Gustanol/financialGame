@@ -33,4 +33,18 @@ public class UsersService {
     List<Users> users = usersRepository.findAll();
     return users.stream().map(user -> new UsersDTO(user)).toList();
   }
+  
+  @Transactional(readOnly = true)
+  public Users createUser(String name) {
+    Users users = new Users();
+    users.setName(name);
+    users.setCash(1000.0);
+    return usersRepository.save(users);
+  }
+  
+  @Transactional(readOnly = true)
+  public void lendMoney(Double amount, String fromUser, String toUser) {
+    usersRepository.withdrawMoney(amount, fromUser);
+    usersRepository.depositMoney(amount, toUser);
+  }
 }
