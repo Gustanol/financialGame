@@ -25,6 +25,9 @@ mvn spring-boot:run # Every time you want to run it
   - filter which user will appear by writing its ID after "***/users/***". Example: `/users/2`
   - you can filter also by user name, using a ***Query Parameter***. Example: `/users?name=John`
   - Add new users by using ***POST*** HTTP method at `http://localhost:8080/users/create/{USERNAME}`
-  - lend money from a user to another also using POST method. Example: `http://localhost:8080/money/lend?amount=350&fromUser=John&toUser=Anna`
+  - lend money from a user to another one also using POST method. Example: `http://localhost:8080/money/lend?amount=350&fromUser=John&toUser=Anna`
+
+- [Version 2.0](https://github.com/Gustanol/financialGame/tree/v2.0)
+  - Delete an user using ***DELETE*** HTTP method. Example: `http://localhost:8080/users/{John}`
 
 ### That's it 😊
