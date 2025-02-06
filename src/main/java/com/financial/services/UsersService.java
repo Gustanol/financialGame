@@ -47,4 +47,15 @@ public class UsersService {
     usersRepository.withdrawMoney(amount, fromUser);
     usersRepository.depositMoney(amount, toUser);
   }
+  
+  @Transactional(readOnly = true)
+  public Double verifyMoney(String fromUser) {
+    Double cash = usersRepository.verifyMoney(fromUser);
+    return cash;
+  }
+  
+  @Transactional(readOnly = true)
+  public void deleteUser(String name) {
+    usersRepository.deleteUser(name);
+  }
 }

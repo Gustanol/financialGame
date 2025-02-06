@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.http.ResponseEntity;
@@ -41,5 +42,11 @@ public class UsersController {
   public ResponseEntity<Users> createUser(@PathVariable String name) {
     Users createdUser = usersService.createUser(name);
     return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
+  }
+  
+  @DeleteMapping(value = "/{name}")
+  public boolean deleteUser(@PathVariable String name) {
+    usersService.deleteUser(name);
+    return true;
   }
 }

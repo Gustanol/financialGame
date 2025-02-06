@@ -22,5 +22,13 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
   @Transactional
   @Query(nativeQuery = true, value = "UPDATE users SET cash = cash + :amount WHERE name = :toUser")
   void depositMoney(@Param("amount") Double amount, @Param("toUser") String toUser);
+  
+  @Transactional
+  @Query(nativeQuery = true, value = "SELECT cash FROM users WHERE name = :fromUser")
+  Double verifyMoney(@Param("fromUser") String fromUser);
+  
+  @Modifying
+  @Transactional
+  @Query(nativeQuery = true, value = "DELETE FROM users WHERE name = :name")
+  void deleteUser(@Param("name") String name);
 }
-
