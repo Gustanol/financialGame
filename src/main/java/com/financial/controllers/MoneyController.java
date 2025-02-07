@@ -21,7 +21,7 @@ public class MoneyController {
   public Object lendMoney(@RequestParam(required = true) Double amount, @RequestParam(required = true) String fromUser, @RequestParam(required = true) String toUser) {
     Double cash = usersService.verifyMoney(fromUser);
     if (cash < amount) {
-      return "The user '" + fromUser + "' does not have money enough";
+      return "The user '" + fromUser + "' does not have enough money";
     }
     usersService.lendMoney(amount, fromUser, toUser);
     return true;

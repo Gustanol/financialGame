@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.financial.entities.Users;
+
 public interface UsersRepository extends JpaRepository<Users, Long> {
   
   Users findByName(String name);

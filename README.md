@@ -28,6 +28,6 @@ mvn spring-boot:run # Every time you want to run it
   - lend money from a user to another one also using POST method. Example: `http://localhost:8080/money/lend?amount=350&fromUser=John&toUser=Anna`
 
 - [Version 2.0](https://github.com/Gustanol/financialGame/tree/v2.0)
-  - Delete an user using ***DELETE*** HTTP method. Example: `http://localhost:8080/users/{John}`
+  - Delete an user using ***DELETE*** HTTP method. Example: `http://localhost:8080/users/John`
 
 ### That's it 😊
