@@ -21,4 +21,10 @@ public class ItemsService {
     List<Items> items = itemsRepository.findAll();
     return items.stream().map(item -> new ItemsDTO(item)).toList();
   }
+  
+  @Transactional(readOnly = true)
+  public Double itemCost(String item) {
+    Double cost = itemsRepository.itemCost(item);
+    return cost;
+  }
 }

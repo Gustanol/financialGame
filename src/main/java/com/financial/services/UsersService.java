@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.financial.repositories.UsersRepository;
+import com.financial.repositories.PurchaseRepository;
 import com.financial.dto.UsersDTO;
 import com.financial.entities.Users;
 
@@ -15,6 +16,9 @@ public class UsersService {
   
   @Autowired
   private UsersRepository usersRepository;
+  
+  @Autowired
+  private PurchaseRepository purchaseRepository;
   
   @Transactional(readOnly = true)
   public UsersDTO findById(Long id) {
@@ -38,7 +42,8 @@ public class UsersService {
   public Users createUser(String name) {
     Users users = new Users();
     users.setName(name);
-    users.setCash(1000.0);
+    users.setCash(10000.0);
+    purchaseRepository.addUser(name);
     return usersRepository.save(users);
   }
   
@@ -57,5 +62,6 @@ public class UsersService {
   @Transactional(readOnly = true)
   public void deleteUser(String name) {
     usersRepository.deleteUser(name);
+    purchaseRepository.removeUser(name);
   }
 }

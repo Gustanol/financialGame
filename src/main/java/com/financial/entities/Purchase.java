@@ -20,15 +20,15 @@ public class Purchase {
   @Column(name = "username")
   private String user;
   
-  private String car;
-  private String house;
-  private String phone;
-  private String computer;
+  private Integer car;
+  private Integer house;
+  private Integer phone;
+  private Integer computer;
   
   public Purchase() {
   }
   
-  public Purchase(Long id, String user, String car, String house, String phone, String computer) {
+  public Purchase(Long id, String user, Integer car, Integer house, Integer phone, Integer computer) {
     this.id = id;
     this.user = user;
     this.car = car;
@@ -53,35 +53,35 @@ public class Purchase {
     this.user = user;
   }
   
-  public String getCar() {
+  public Integer getCar() {
     return car;
   }
   
-  public void setCar(String car) {
+  public void setCar(Integer car) {
     this.car = car;
   }
   
-  public String getHouse() {
+  public Integer getHouse() {
     return house;
   }
   
-  public void setHouse(String house) {
+  public void setHouse(Integer house) {
     this.house = house;
   }
   
-  public String getPhone() {
+  public Integer getPhone() {
     return phone;
   }
   
-  public void setPhone(String phone) {
+  public void setPhone(Integer phone) {
     this.phone = phone;
   }
   
-  public String getComputer() {
+  public Integer getComputer() {
     return computer;
   }
   
-  public void setComputer(String computer) {
+  public void setComputer(Integer computer) {
     this.computer = computer;
   }
   

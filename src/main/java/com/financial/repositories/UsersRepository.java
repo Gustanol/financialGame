@@ -18,6 +18,11 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
   @Transactional
   @Query(nativeQuery = true, value = "UPDATE users SET cash = cash - :amount WHERE name = :fromUser")
   void withdrawMoney(@Param("amount") Double amount, @Param("fromUser") String fromUser);
+  
+  @Modifying
+  @Transactional
+  @Query(nativeQuery = true, value = "UPDATE users SET cash = cash - :amount * :number WHERE name = :fromUser")
+  void withdrawMoneyMult(@Param("amount") Double amount, @Param("fromUser") String fromUser, @Param("number") Integer number);
 
   @Modifying
   @Transactional
